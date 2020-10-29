@@ -10,15 +10,17 @@ import java.util.logging.Logger;
 public class DescriptionTabRecord implements TabRecord {
     private static final Logger LOG = Logger.getLogger(DescriptionTabRecord.class.getName());
 
-    private String name = "Description";
+    private String name = "";
     private String text = "";
     private String imageURL = "";
 
     public DescriptionTabRecord(List<String> strings) {
         for (String s : strings){
             String[] prop = s.split("\\|");
-                switch (prop[0]){
-                    case "name" -> name = prop[1];
+                switch (prop[0])
+                {
+                    case "name" -> { /* dp nothing it was already treated */ }
+                    default -> LOG.warning(() -> prop[1] + "not treated " + Arrays.toString(prop));
                     case "text" -> text = ("".equals(text) ? "" : (text + "/n")) + prop[1];
                     case "image" -> imageURL = prop[1];
                     case "tab" -> { /* do nothing it was already treated */ }

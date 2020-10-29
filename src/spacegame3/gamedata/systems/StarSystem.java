@@ -25,12 +25,15 @@ public class StarSystem {
 
         List<String> systemData = data.get(ID_NAME);
 
-        for (String propraw : systemData){
+        for (String propraw : systemData)
+        {
             String[] prop = propraw.split("\\|");
-            switch (prop[PROP_NAME_POSITION]) {
+            switch (prop[PROP_NAME_POSITION])
+            {
                 case "contains" -> {
                     String[] objects = prop[PROP_VALUE_POSITION].split(",");
-                    for (String id : objects) {
+                    for (String id : objects)
+                    {
                         CelestialBody cb = new CelestialBody(id, data, cbs);
                         cb.setInSystem(this);
                         celestialBodies.put(id, cb);

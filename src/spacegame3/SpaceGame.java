@@ -19,6 +19,7 @@ import java.util.logging.Logger;
 public final class SpaceGame extends Application {
     private static final Logger LOG = Logger.getLogger(SpaceGame.class.getName());
 
+
     static {
         Path logConfigFile = Paths.get("src/resources/commons/logging.properties");
         LOG.info(() -> logConfigFile.toAbsolutePath().toString());
