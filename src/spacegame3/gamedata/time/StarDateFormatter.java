@@ -7,6 +7,7 @@ public abstract class StarDateFormatter {
         private static final String TIME_FORMAT_FOLDER_URL = "data/timeformat/";
         private Path structurePath;
         private String calenderName;
+        private String calenderDay;
 
 
         public static StarDateFormatter build(Path storyPath, String calendarName) {
@@ -15,7 +16,7 @@ public abstract class StarDateFormatter {
             StarDateFormatter formatter = null;
 
             return switch (calendarName){
-                case "iso8601" -> new StarDateEarthCalendar(structurePath, calendarName) {
+                case "iso8601" -> new StarDateCustomCalendar(structurePath, calendarName, calenderDay) {
                     @Override
                     public String toString(StarDate timestamp, String formatName) {
                         return null;
@@ -28,6 +29,11 @@ public abstract class StarDateFormatter {
 
                     @Override
                     public String getCalendarName() {
+                        return null;
+                    }
+
+                    @Override
+                    public String calenderDay() {
                         return null;
                     }
                 };
